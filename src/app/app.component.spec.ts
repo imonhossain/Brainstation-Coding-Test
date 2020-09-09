@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'brainstationCodingTest'`, () => {
+  it(`should have as title 'Github-Trending'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('brainstationCodingTest');
+    expect(app.title).toEqual('Github-Trending');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('brainstationCodingTest app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('Github-Trending app is running!');
   });
 });

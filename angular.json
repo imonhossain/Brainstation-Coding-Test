@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "brainstationCodingTest": {
+    "Github-Trending": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/brainstationCodingTest",
+            "outputPath": "dist/Github-Trending",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/sass/main.scss"
             ],
             "scripts": []
           },
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "brainstationCodingTest:build"
+            "browserTarget": "Github-Trending:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "brainstationCodingTest:build:production"
+              "browserTarget": "Github-Trending:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "brainstationCodingTest:build"
+            "browserTarget": "Github-Trending:build"
           }
         },
         "test": {
@@ -88,7 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/main.scss"
             ],
             "scripts": []
           }
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "brainstationCodingTest:serve"
+            "devServerTarget": "Github-Trending:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "brainstationCodingTest:serve:production"
+              "devServerTarget": "Github-Trending:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "brainstationCodingTest"
+  "defaultProject": "Github-Trending"
 }
