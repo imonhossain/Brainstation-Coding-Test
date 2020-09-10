@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {take} from 'rxjs/operators';
 import { User } from '../../models/user.model';
-import { HomeServices } from '../../services/home.services';
+import { UserServices } from '../../services/user.services';
 import { Repository } from '../../models/repository.model';
+import { RepositoryServices } from '../../services/repository.services';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -16,7 +17,8 @@ export class UserDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private homeService: HomeServices) { 
+    private repositoryServices: RepositoryServices,
+    private userServices: UserServices) { 
   }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getUser(){
-    this.homeService.getUserDetails(this.userName).pipe(
+    this.userServices.getUserDetails(this.userName).pipe(
       take(1)
     ).subscribe((data: User) => {
       if (data) {
@@ -43,7 +45,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getRepositories(){
-    this.homeService.getUserRepos(this.userName).pipe(
+    this.repositoryServices.getUserRepos(this.userName).pipe(
       take(1)
     ).subscribe((result: Repository[]) => {
       this.repositoryList = result.map(repository => new Repository(repository));
