@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-// import { acConfig } from '../../../app.config'
+// import { apiConfig } from '../../../app.config'
 import { HttpClient } from '@angular/common/http';
 
 @Component({

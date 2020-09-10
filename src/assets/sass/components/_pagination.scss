@@ -1,5 +1,24 @@
 //== Pagination
 /*----------------------------------------*/
-
+.pagination-wraper{
+  display: flex;
+  width:100%;
+  align-items: center;
+}
+.pagination-total{
+  margin-right: auto;
+}
+.pagination-right{
+  display: flex;
+  align-items: center;
+  .bs-btn__squire{
+    margin:2px;
+  }
+}
+.pagination-page-size{
+  width:120px;
+  padding-left: 10px;
+  margin-left: 10px;;
+}
 //== End Pagination
 /*----------------------------------------*/

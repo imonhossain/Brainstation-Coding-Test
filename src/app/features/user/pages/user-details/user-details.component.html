@@ -1,0 +1,25 @@
+<div class="user-details bs-container">
+  <div class="user-details__left">
+    <div class="user-details__photo">
+      <img [src]="user?.avatar_url" alt="">
+    </div>
+    <div class="user-details__info">
+      <h2 class="user-details__name m-b-0">{{ user?.name }}</h2>
+      <h4>{{ user?.login }}</h4>
+      <a [href]="user?.blog" target="_blank" class="">{{ user?.blog }}</a><br/>
+      <a [href]="user?.html_url" target="_blank" class="">{{ user?.html_url }}</a>
+      <span></span>
+    </div>
+  </div>
+  <div class="user-details__right">
+    <h3 class="m-t-0">Repository list</h3>
+    <ul class="repository-list">
+      <li *ngFor="let repository of repositoryList">
+        <div class="repository-item">
+          <h3 class="m-b-0 m-t-0"><a [href]="repository.html_url" target="_blank" class="text-primary">{{ repository.name }}</a></h3>
+          <span>{{ repository.description }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
