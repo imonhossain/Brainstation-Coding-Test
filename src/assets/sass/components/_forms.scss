@@ -30,6 +30,26 @@
     box-shadow:none;
   }
 }
+.filter-form{
+  max-width: 400px;
+  margin-left: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  .bs-form-group{
+    display: flex;
+    &__label{
+      width:100px;
+      padding-top: 10px;
+    }
+  }
+  .ng-select{
+    width: 300px;
+  }
+ .validation-error-message{
+   padding-left: 100px;;
+ }
+}
+
 /* -----------------------------------
 ** Forms
 -------------------------------------*/

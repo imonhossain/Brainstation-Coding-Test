@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { HomeServices } from '../../services/home.services'
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UserServices } from '../../services/user.services'
 import { User } from '../../models/user.model'
 import { Repository } from '../../models/repository.model'
 import { INITIAL_PAGE_LIMIT, PAGE_SIZE_INTERVAL } from '../../../../shared/application.const';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { RepositoryServices } from '../../services/repository.services';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   public activeTab = "user";
   public tab1 = "user";
   public tab2 = "repositories";
@@ -24,18 +25,16 @@ export class HomeComponent implements OnInit {
   private subscribtionList:Subscription[] = [];
   
   constructor(
-    private homeServices: HomeServices,
-    private fb: FormBuilder
+    private userServices: UserServices,
+    private fb: FormBuilder,
+    private repositoryServices: RepositoryServices,
   ) { }
 
   ngOnInit(): void {
     this.createSearchForm();
   }
 
-  get queryStringControl(): FormControl {
-    return this.searchForm.get('queryString') as FormControl;
-  }
-
+ 
   onSearch() {
     if (!this.searchForm.valid) return;
     let queryObj = {
@@ -46,6 +45,10 @@ export class HomeComponent implements OnInit {
     } else {
       this.loadRepository(queryObj)
     }
+  }
+
+  get queryStringControl(): FormControl {
+    return this.searchForm.get('queryString') as FormControl;
   }
 
   get users(): User[] {
@@ -76,13 +79,13 @@ export class HomeComponent implements OnInit {
   }
 
   private loadUsers(queryObj) {
-    this.subscribtionList.push(this.homeServices.getUsers(queryObj).subscribe(result => {
+    this.subscribtionList.push(this.userServices.getUsers(queryObj).subscribe(result => {
       this.userList = result.map(user => new User(user));
     }));
   }
   
   private loadRepository(queryObj) {
-    this.subscribtionList.push(this.homeServices.getRepository(queryObj).subscribe(result => {
+    this.subscribtionList.push(this.repositoryServices.getRepository(queryObj).subscribe(result => {
       this.repositoryList = result.map(repository => new Repository(repository));
     }));
   }

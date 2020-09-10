@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Repository } from '../../models/repository.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HomeServices } from '../../services/home.services';
+import { RepositoryServices } from '../../services/repository.services';
+import { UserServices } from '../../services/user.services';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -15,7 +16,8 @@ export class RepositoryDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private homeService: HomeServices) { 
+    private repositoryServices: RepositoryServices,
+    private userServices: UserServices) { 
   }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class RepositoryDetailsComponent implements OnInit {
   }
 
   getRepository(){
-    this.homeService.getRepositoryDetails(this.repoName).pipe(
+    this.repositoryServices.getRepositoryDetails(this.repoName).pipe(
       take(1)
     ).subscribe((data: Repository) => {
       if (data) {
