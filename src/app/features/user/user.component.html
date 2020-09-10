@@ -1,7 +1,17 @@
 <div class="outer-wrapper">
   <app-header></app-header>
-  <div class="bs-container router-wrapper">
-    <router-outlet></router-outlet>
+  <div class="router-wrapper">
+    <div class="bs-container">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="loader-wrapper loader-wrapper--overlay" *ngIf="spinnerService.block">
+      <div class="loader">
+        <div class="line-scale">
+          <h1>Loading....</h1>
+        </div>
+      </div>
+    </div>
   </div>
   <app-footer></app-footer>
 </div>
+

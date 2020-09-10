@@ -19,4 +19,7 @@ export class UserServices {
     public getTopUsers(countryName):Observable<any> {
       return this.apiService.get(`search/users?q=location:${countryName}+followers:>${TOP_USER_FLOWER_LIMIT}`);
     }
+    // public getTopUsers(countryName):Observable<any> {
+    //   return this.apiService.get(`search/userasdfs?q=location:${countryName}+followers:>${TOP_USER_FLOWER_LIMIT}`);
+    // }
 }

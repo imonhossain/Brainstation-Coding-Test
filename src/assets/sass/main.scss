@@ -11,10 +11,11 @@
 @import "base/base";
 
 /* -----------------------------------
-** Layout
+** Vendor
 -------------------------------------*/
 @import "vendors/normalize";
 @import "vendors/ng-select";
+@import "vendors/ngx-toast";
 
 /* -----------------------------------
 ** Layout
@@ -32,6 +33,7 @@
 @import "components/buttons";
 @import "components/pagination";
 @import "components/user-details";
+@import "components/preloader";
 
 
 
