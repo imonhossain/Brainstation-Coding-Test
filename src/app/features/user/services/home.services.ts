@@ -23,4 +23,7 @@ export class HomeServices {
     public getUserRepos(userName):Observable<any> {
       return this.apiService.get(`users/${userName}/repos`);
     }
+    public getRepositoryDetails(repositoryFullName):Observable<any> {
+      return this.apiService.get(`repos/${repositoryFullName}`);
+    }
 }

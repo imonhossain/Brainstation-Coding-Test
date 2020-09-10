@@ -24,7 +24,7 @@
             <th>Type</th>
             <th>Score </th>
           </tr>
-          <tr *ngFor="let user of users; let i = index" class="cursor-pointer" [routerLink]="[firstPath+'/user-details']" [queryParams]="{username:user.login}">
+          <tr *ngFor="let user of users; let i = index" class="cursor-pointer" [routerLink]="['/user-details']" [queryParams]="{username:user.login}">
             <td>
               <div class="user-info">
                 <img class="user-info__image" [src]="user.avatar_url" alt="">
@@ -63,7 +63,7 @@
             <th>Full Name</th>
             <th>Status </th>
           </tr>
-          <tr *ngFor="let repository of repositories; let i = index" class="cursor-pointer">
+          <tr *ngFor="let repository of repositories; let i = index"  class="cursor-pointer" [routerLink]="['/repository-details']" [queryParams]="{reponame:repository.full_name}">
             <td>{{ repository.name }}</td>
             <td>{{ repository.full_name }}</td>
             <td>

@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   public productsPerPage = INITIAL_PAGE_LIMIT;
   public pageSizeInterVal = PAGE_SIZE_INTERVAL;
   public pageNumbers = [];
-  public firstPath: string;
   public searchForm: FormGroup;
   public userList = new Array<User>();
   public repositoryList = new Array<Repository>();
@@ -30,7 +29,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.firstPath = `/${window.location.pathname.split('/')[1]}`;
     this.createSearchForm();
   }
 
