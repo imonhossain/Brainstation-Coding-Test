@@ -45,7 +45,7 @@
           {{page}}
           </button>
         </div>
-        <select class="pagination-page-size bs-input" [value]="productsPerPage"
+        <select class="pagination-page-size bs-input" [value]="itemPerPage"
           (change)="changePageSize($event.target.value)">
           <option *ngFor="let number of pageSizeInterVal" [value]="number">{{number}} Per Page</option>
         </select>
@@ -83,7 +83,7 @@
           {{page}}
           </button>
         </div>
-        <select class="pagination-page-size bs-input" [value]="productsPerPage"
+        <select class="pagination-page-size bs-input" [value]="itemPerPage"
           (change)="changePageSize($event.target.value)">
           <option *ngFor="let number of pageSizeInterVal" [value]="number">{{number}} Per Page</option>
         </select>

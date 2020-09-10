@@ -10,7 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { RepositoryDetailsComponent } from './pages/repository-details/repository-details.component';
 import { TopUserComponent } from './pages/top-user/top-user.component';
-import { NgSelectModule } from '@ng-select/ng-select'
+import { NgSelectModule } from '@ng-select/ng-select';
+import { TopRepositoryComponent } from './pages/top-repository/top-repository.component'
 @NgModule({
   imports: [
     CommonModule,
@@ -27,6 +28,7 @@ import { NgSelectModule } from '@ng-select/ng-select'
     UserDetailsComponent,
     RepositoryDetailsComponent,
     TopUserComponent,
+    TopRepositoryComponent,
   ],
   providers: [
     SpinnerService,

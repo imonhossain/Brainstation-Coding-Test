@@ -6,16 +6,18 @@ import { RepositoryServices } from '../../services/repository.services';
 import { debounceTime } from 'rxjs/operators';
 import { User } from '../../models/user.model';
 import { Subscription } from 'rxjs';
+import { Repository } from '../../models/repository.model';
 
 @Component({
-  selector: 'app-top-user',
-  templateUrl: './top-user.component.html',
-  styleUrls: ['./top-user.component.css']
+  selector: 'app-top-repository',
+  templateUrl: './top-repository.component.html',
+  styleUrls: ['./top-repository.component.css']
 })
-export class TopUserComponent implements OnInit, OnDestroy {
+export class TopRepositoryComponent implements OnInit {
+
   public countryList = COUNTRY_LIST;
   public filterForm: FormGroup;
-  public userList = new Array<User>();
+  public repositoryList = new Array<Repository>();
   private subscribtionList:Subscription[] = [];
   public selectedPage = 1;
   public itemPerPage = INITIAL_PAGE_LIMIT;
@@ -30,21 +32,18 @@ export class TopUserComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.createSearchForm();
-    this.countryChangeEvent();
-    this.loadUsers(this.selectedCountry);
+    this.loadRepositories();
   }
 
   get countryNameControl(): FormControl {
     return this.filterForm.get('countryName') as FormControl;
   }
 
-  get users(): User[] {
+  get repositories(): Repository[] {
     let pageIndex = (this.selectedPage - 1) * this.itemPerPage;
-    this.pageNumbers = Array(Math.ceil(this.userList.length / this.itemPerPage)).fill(0).map((x, i) => i + 1);
-    return this.userList.slice(pageIndex, pageIndex + this.itemPerPage);
+    this.pageNumbers = Array(Math.ceil(this.repositoryList.length / this.itemPerPage)).fill(0).map((x, i) => i + 1);
+    return this.repositoryList.slice(pageIndex, pageIndex + this.itemPerPage);
   }
-
   changePage(newPage: number) {
     this.selectedPage = Number(newPage);
   }
@@ -54,25 +53,12 @@ export class TopUserComponent implements OnInit, OnDestroy {
     this.changePage(1);
   }
 
-  private createSearchForm(): void {
-    this.filterForm = this.fb.group({
-      countryName: [this.selectedCountry, [Validators.required]],
-    });
-  }
 
-  private countryChangeEvent(){
-    this.filterForm.controls['countryName'].valueChanges
-    .pipe(
-      debounceTime(300)
-    ).subscribe((value: any) => {
-      console.log("value", value);
-      this.loadUsers(value);
-    })
-  }
   
-  private loadUsers(countryName:String) {
-    this.subscribtionList.push(this.userServices.getTopUsers(countryName).subscribe(result => {
-      this.userList = result.items.map(user => new User(user));
+  
+  private loadRepositories() {
+    this.subscribtionList.push(this.repositoryServices.getTopRepository().subscribe(result => {
+      this.repositoryList = result.items.map(user => new Repository(user));
     }));
   }
 

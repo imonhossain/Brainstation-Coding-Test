@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BaseDataService } from '../../../providers/services/base-data.service';
+import { TOP_REPOSITORY_STATUS_LIMIT } from 'src/app/shared/application.const';
 
 @Injectable({
     providedIn: 'root'
@@ -17,5 +18,8 @@ export class RepositoryServices {
     }
     public getRepositoryDetails(repositoryFullName):Observable<any> {
       return this.apiService.get(`repos/${repositoryFullName}`);
+    }
+    public getTopRepository():Observable<any> {
+      return this.apiService.get(`search/repositories?q=stars:>${TOP_REPOSITORY_STATUS_LIMIT}`);
     }
 }
