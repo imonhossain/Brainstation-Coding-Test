@@ -4,6 +4,7 @@
 .user-details{
   display: flex;
   width:100%;
+  margin:25px 0; 
   border:1px solid $border;
   &__left{
     width:300px;

@@ -4,9 +4,16 @@
 .cursor-pointer{
   cursor: pointer;
 }
+// .router-wrapper{
+//   padding-top: 30px;
+//   padding-bottom: 30px;
+// }
 .router-wrapper{
-  padding-top: 30px;
-  padding-bottom: 30px;
+  position: relative;
+  min-height: calc(100vh - 110px);
+}
+.top-repository-wrapper{
+  padding:30px 0;
 }
 /* -----------------------------------
 ** End Extra utils

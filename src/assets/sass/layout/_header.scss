@@ -56,6 +56,10 @@
   a{
     color:$black;
     font-size:16px;
+    &.active{
+      font-weight: 700;
+      color:$primary;
+    }
     &:hover{
       color:$primary;
     }
@@ -63,6 +67,12 @@
 }
 .bs-header{
   border-bottom:1px solid $border;
+}
+.bs-site-title{
+  margin:10px 0;
+}
+.bs-header{
+  height: 60px;
 }
 /* -----------------------------------
 ** End Header
