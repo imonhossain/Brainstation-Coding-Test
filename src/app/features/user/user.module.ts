@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeServices } from './services/home.services';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { RepositoryDetailsComponent } from './pages/repository-details/repository-details.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
     UserComponent,
     HomeComponent,
     UserDetailsComponent,
+    RepositoryDetailsComponent,
 
   ],
   providers: [
