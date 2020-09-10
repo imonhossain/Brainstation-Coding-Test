@@ -1,0 +1,93 @@
+<form class="bs-main-search" [formGroup]="searchForm" (submit)="onSearch()">
+  <div class="bs-input-group">
+    <input class="bs-input bs-input-group__input" formControlName="queryString" name="queryString" placeholder="Search" type="text" name="" id="">
+    <button type="submit" class="bs-btn bs-input-group__button" >
+      Search
+    </button>
+  </div>
+  <p *ngIf="queryStringControl.touched && queryStringControl.hasError('required') " class="text-danger">Required.
+  </p> 
+</form>
+<br/>
+<div class="page-content-wrapper">
+  <div class="page-cotent-header text-center">
+    <button class="bs-btn" [class.active]="activeTab === tab1" (click)="activeTab=tab1">User</button>
+    <button class="bs-btn" [class.active]="activeTab === tab2" (click)="activeTab=tab2">Repositories</button>
+  </div>
+  <br/>
+  <div class="page-cotnent" *ngIf="activeTab === tab1">
+    <div class="bs-table-responsive">
+      <table class="bs-table">
+        <thead class="thead-primary">
+          <tr>
+            <th>User</th>
+            <th>Type</th>
+            <th>Score </th>
+          </tr>
+          <tr *ngFor="let user of users; let i = index" class="cursor-pointer" [routerLink]="[firstPath+'/user-details']" [queryParams]="{username:user.login}">
+            <td>
+              <div class="user-info">
+                <img class="user-info__image" [src]="user.avatar_url" alt="">
+                <span class="user-name user-info__name"> {{ user.login }}</span>
+              </div>
+            </td>
+            <td>{{ user.type }}</td>
+            <td>{{ user.score }} </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="pagination-wraper">
+      <span class="pagination-total">Total <strong>{{ userList?.length }}</strong></span>
+      <div class="pagination-right">
+        <div class="btn-group float-right">
+          <button *ngFor="let page of pageNumbers" (click)="changePage(page)" class="bs-btn bs-btn__squire" [class.active]="page == selectedPage">
+          {{page}}
+          </button>
+        </div>
+        <select class="pagination-page-size bs-input" [value]="productsPerPage"
+          (change)="changePageSize($event.target.value)">
+          <option *ngFor="let number of pageSizeInterVal" [value]="number">{{number}} Per Page</option>
+        </select>
+      </div>
+      
+    </div><!--/.pagination-wraper-->
+  </div><!--/.page-cotnent-->
+
+  <div class="page-cotnent" *ngIf="activeTab === tab2">
+    <div class="bs-table-responsive">
+      <table class="bs-table">
+        <thead class="thead-primary">
+          <tr>
+            <th>Name</th>
+            <th>Full Name</th>
+            <th>Status </th>
+          </tr>
+          <tr *ngFor="let repository of repositories; let i = index" class="cursor-pointer">
+            <td>{{ repository.name }}</td>
+            <td>{{ repository.full_name }}</td>
+            <td>
+              <span *ngIf="repository.private">Private</span>
+              <span *ngIf="!repository.private">Public</span>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div class="pagination-wraper">
+      <span class="pagination-total">Total <strong>{{ repositoryList?.length }}</strong></span>
+      <div class="pagination-right">
+        <div class="btn-group float-right">
+          <button *ngFor="let page of pageNumbers" (click)="changePage(page)" class="bs-btn bs-btn__squire" [class.active]="page == selectedPage">
+          {{page}}
+          </button>
+        </div>
+        <select class="pagination-page-size bs-input" [value]="productsPerPage"
+          (change)="changePageSize($event.target.value)">
+          <option *ngFor="let number of pageSizeInterVal" [value]="number">{{number}} Per Page</option>
+        </select>
+      </div>
+    </div><!--/.pagination-wraper-->
+  </div><!--/.page-cotnent-->
+</div>
