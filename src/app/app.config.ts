@@ -1,3 +1,3 @@
-export const acConfig = {
-    apiUrl: 'https://api.github.com/',
+export const apiConfig = {
+    apiUrl: 'https://api.github.com',
 }

@@ -4,12 +4,28 @@
 button{
 
 }
-.btn{
-	min-width: 80px;
+.bs-btn{
+	min-width: 100px;
+	border:0;
+	border-radius: 0;
+	height: 40px;
+	line-height:40px;
+	color:$white;
+	background:$primary;
+	&__squire{
+		min-width: 40px;
+		width:40px;
+	}
+	cursor: pointer;
 	&:focus{
-		box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+		outline: 0;
+		box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+	}
+	&.active{
+		background:$primary-active;
 	}
 }
+
 
 /* -----------------------------------
 ** End Buton

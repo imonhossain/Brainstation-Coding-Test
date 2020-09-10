@@ -2,6 +2,76 @@
 ** Table
 -------------------------------------*/
 
+.bs-table .thead-primary th{
+	color: $white;
+	background-color: $primary;
+	border-color:  $primary;
+	
+}
+.bs-table{
+  width: 100%;
+  text-align: left;
+	tbody tr:nth-of-type(odd){
+			background-color: $ash-white;
+	}
+	tr{
+			td{
+					padding:15px 10px;
+					color: $black;
+			}
+			th{
+					padding: 15px 10px;
+			}
+			td,th{
+					font-size: 14px;
+					
+			}
+	}
+}
+
+.user-info{
+  position: relative;
+  &__image{
+    width:40px;
+    height:40px;
+    position: absolute;
+    top:0;
+    left:0;
+    object-fit: cover;
+    min-height: 40px;
+  }
+  &__name{
+    padding-left: 50px;
+    padding-top: 5px;
+  }
+}
+table {
+  border-collapse: collapse;
+}
+.bs-table td, .bs-table th{
+	border-top: 0;
+  border-bottom: 1px solid $border;
+  .user-info__image{
+    top: -13px;
+  }
+	
+}
+.bs-table td{
+	&:first-of-type{
+			border-left: 1px solid $border;
+	}
+	&:last-of-type{
+			border-right: 1px solid $border;
+	}
+}
+.bs-table th{
+	&:first-of-type{
+			border-left: 1px solid $primary;
+	}
+	&:last-of-type{
+			border-right: 1px solid $primary;
+	}
+}
 
 
 /* -----------------------------------
