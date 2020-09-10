@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public tab1 = "user";
   public tab2 = "repositories";
   public selectedPage = 1;
-  public productsPerPage = INITIAL_PAGE_LIMIT;
+  public itemPerPage = INITIAL_PAGE_LIMIT;
   public pageSizeInterVal = PAGE_SIZE_INTERVAL;
   public pageNumbers = [];
   public searchForm: FormGroup;
@@ -52,15 +52,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   get users(): User[] {
-    let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    this.pageNumbers = Array(Math.ceil(this.userList.length / this.productsPerPage)).fill(0).map((x, i) => i + 1);
-    return this.userList.slice(pageIndex, pageIndex + this.productsPerPage);
+    let pageIndex = (this.selectedPage - 1) * this.itemPerPage;
+    this.pageNumbers = Array(Math.ceil(this.userList.length / this.itemPerPage)).fill(0).map((x, i) => i + 1);
+    return this.userList.slice(pageIndex, pageIndex + this.itemPerPage);
   }
 
   get repositories(): Repository[] {
-    let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    this.pageNumbers = Array(Math.ceil(this.repositoryList.length / this.productsPerPage)).fill(0).map((x, i) => i + 1);
-    return this.repositoryList.slice(pageIndex, pageIndex + this.productsPerPage);
+    let pageIndex = (this.selectedPage - 1) * this.itemPerPage;
+    this.pageNumbers = Array(Math.ceil(this.repositoryList.length / this.itemPerPage)).fill(0).map((x, i) => i + 1);
+    return this.repositoryList.slice(pageIndex, pageIndex + this.itemPerPage);
   }
 
   changePage(newPage: number) {
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   changePageSize(newSize: number) {
-    this.productsPerPage = Number(newSize);
+    this.itemPerPage = Number(newSize);
     this.changePage(1);
   }
 

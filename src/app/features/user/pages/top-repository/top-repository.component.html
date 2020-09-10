@@ -1,0 +1,36 @@
+<div class="page-cotnent">
+  <div class="bs-table-responsive">
+    <table class="bs-table">
+      <thead class="thead-primary">
+        <tr>
+          <th>Name</th>
+          <th>Full Name</th>
+          <th>Status </th>
+        </tr>
+        <tr *ngFor="let repository of repositories; let i = index"  class="cursor-pointer" [routerLink]="['/repository-details']" [queryParams]="{reponame:repository.full_name}">
+          <td>{{ repository.name }}</td>
+          <td>{{ repository.full_name }}</td>
+          <td>
+            <span *ngIf="repository.private">Private</span>
+            <span *ngIf="!repository.private">Public</span>
+          </td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <div class="pagination-wraper">
+    <span class="pagination-total">Total <strong>{{ repositoryList?.length }}</strong></span>
+    <div class="pagination-right">
+      <div class="btn-group float-right">
+        <button *ngFor="let page of pageNumbers" (click)="changePage(page)" class="bs-btn bs-btn__squire" [class.active]="page == selectedPage">
+        {{page}}
+        </button>
+      </div>
+      <select class="pagination-page-size bs-input" [value]="itemPerPage"
+        (change)="changePageSize($event.target.value)">
+        <option *ngFor="let number of pageSizeInterVal" [value]="number">{{number}} Per Page</option>
+      </select>
+    </div>
+  </div><!--/.pagination-wraper-->
+</div><!--/.page-cotnent-->
