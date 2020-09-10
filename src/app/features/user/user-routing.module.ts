@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './pages/home/home.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { RepositoryDetailsComponent } from './pages/repository-details/repository-details.component';
+import { TopUserComponent } from './pages/top-user/top-user.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'user-details', component: UserDetailsComponent },
       { path: 'repository-details', component: RepositoryDetailsComponent },
+      { path: 'top-users', component: TopUserComponent },
     ]
   }
 ]

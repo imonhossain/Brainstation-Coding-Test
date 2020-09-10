@@ -1,0 +1,54 @@
+<div class="top-user-container">
+  <form [formGroup]="filterForm" class="filter-form">
+    <div class="bs-form-group">
+      <label class="bs-form-group__label">Country Name</label>
+      <ng-select bindLabel="countryName" placeholder="Select Country" formControlName="countryName"
+        [ngClass]="{ 'is-invalid': countryNameControl.invalid && countryNameControl.touched }">
+        <ng-option *ngFor="let name of countryList" [value]="name">
+          {{name}}
+        </ng-option>
+      </ng-select>
+    </div>
+    <div *ngIf="countryNameControl.invalid && countryNameControl.touched" class="text-danger validation-error-message">
+      <div>Country Name is required</div>
+    </div>
+  </form>
+  <div class="page-cotnent">
+    <div class="bs-table-responsive">
+      <table class="bs-table">
+        <thead class="thead-primary">
+          <tr>
+            <th>User</th>
+            <th>Type</th>
+            <th>Score </th>
+          </tr>
+          <tr *ngFor="let user of users; let i = index" class="cursor-pointer" [routerLink]="['/user-details']" [queryParams]="{username:user.login}">
+            <td>
+              <div class="user-info">
+                <img class="user-info__image" [src]="user.avatar_url" alt="">
+                <span class="user-name user-info__name"> {{ user.login }}</span>
+              </div>
+            </td>
+            <td>{{ user.type }}</td>
+            <td>{{ user.score }} </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="pagination-wraper">
+      <span class="pagination-total">Total <strong>{{ userList?.length }}</strong></span>
+      <div class="pagination-right">
+        <div class="btn-group float-right">
+          <button *ngFor="let page of pageNumbers" (click)="changePage(page)" class="bs-btn bs-btn__squire" [class.active]="page == selectedPage">
+          {{page}}
+          </button>
+        </div>
+        <select class="pagination-page-size bs-input" [value]="productsPerPage"
+          (change)="changePageSize($event.target.value)">
+          <option *ngFor="let number of pageSizeInterVal" [value]="number">{{number}} Per Page</option>
+        </select>
+      </div>
+      
+    </div><!--/.pagination-wraper-->
+  </div><!--/.page-cotnent-->
+</div>
