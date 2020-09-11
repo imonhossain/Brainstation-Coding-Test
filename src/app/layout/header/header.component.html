@@ -2,12 +2,17 @@
 <div class="bs-header ">
   <div class="bs-container">
     <div class="bs-header-menu">
-      <h1 class="bs-site-title">Github Trending</h1>
-      <ul class="bs-menu-list">
-        <li><a routerLinkActive="active" [routerLink]="['/']">Home</a></li>
-        <li><a routerLinkActive="active" [routerLink]="['/top-users']">Top user by country</a></li>
-        <li><a routerLinkActive="active" [routerLink]="['/top-repositories']">Top repositories</a></li>
+      <h1 class="bs-site-title"><a [routerLink]="['/']">Github Trending</a></h1>
+      <ul class="bs-menu-list"  [class.open-menu]="openMenuMobile">
+        <li><a routerLinkActive="active" [routerLink]="['/home']" (click)="openMenuMobile = false">Home</a></li>
+        <li><a routerLinkActive="active" [routerLink]="['/top-users']"  (click)="openMenuMobile = false">Top user by country</a></li>
+        <li><a routerLinkActive="active" [routerLink]="['/top-repositories']" (click)="openMenuMobile = false">Top repositories</a></li>
       </ul>
+      <button id="header-humberger" class="header-humberger bs-btn bs-btn__squire" [class.show-cross]="openMenuMobile" (click)="openMenuMobile = !openMenuMobile">
+        <span class="bar-1"></span>
+        <span class="bar-2"></span>
+        <span class="bar-3"></span>
+      </button>
     </div>
   </div>
 </div>

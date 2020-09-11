@@ -1,17 +1,19 @@
-<div class="user-details bs-container">
-  <div class="user-details__left">
-    
-    <div class="user-details__info">
-      <h2 class="user-details__name m-b-0">{{ repository?.name }}</h2>
-      <h4>{{ repository?.full_name }}</h4>
-      <p>{{ repository?.description }}</p>
-      <a [href]="repository?.html_url" target="_blank" class="">{{ repository?.html_url }}</a>
+<div class="user-details-wrapper">
+  <div class="user-details bs-container">
+    <div class="user-details__left">
       
+      <div class="user-details__info">
+        <h2 class="user-details__name m-b-0">{{ repository?.name }}</h2>
+        <h4>{{ repository?.full_name }}</h4>
+        <p>{{ repository?.description }}</p>
+        <a class="html-url" [href]="repository?.html_url" target="_blank">{{ repository?.html_url }}</a>
+        
+      </div>
     </div>
-  </div>
-  <div class="user-details__right">
-    <span>Open Issue: <strong>{{ repository?.open_issues }}</strong></span><br/>
-    <span>Forks: <strong>{{ repository?.forks }}</strong></span><br/>
-    <span>Watchers: <strong>{{ repository?.watchers }}</strong></span><br/>
+    <div class="user-details__right">
+      <span>Open Issue: <strong>{{ repository?.open_issues }}</strong></span><br/>
+      <span>Forks: <strong>{{ repository?.forks }}</strong></span><br/>
+      <span>Watchers: <strong>{{ repository?.watchers }}</strong></span><br/>
+    </div>
   </div>
 </div>

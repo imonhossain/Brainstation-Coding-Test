@@ -1,14 +1,12 @@
+
+
 /* -----------------------------------
 ** Utils
 -------------------------------------*/
 @import "utils/variables";
 @import "utils/spacing";
-@import "utils/extra";
 
-/* -----------------------------------
-** Base
--------------------------------------*/
-@import "base/base";
+@import "utils/media-screen";
 
 /* -----------------------------------
 ** Vendor
@@ -16,6 +14,12 @@
 @import "vendors/normalize";
 @import "vendors/ng-select";
 @import "vendors/ngx-toast";
+/* -----------------------------------
+** Base
+-------------------------------------*/
+@import "base/base";
+
+
 
 /* -----------------------------------
 ** Layout
@@ -34,12 +38,5 @@
 @import "components/pagination";
 @import "components/user-details";
 @import "components/preloader";
-
-
-
-/* -----------------------------------
-** Meadia screen
--------------------------------------*/
-@import "utils/media-screen";
-
+@import "utils/extra";
 

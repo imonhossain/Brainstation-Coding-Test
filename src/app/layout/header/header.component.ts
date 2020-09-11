@@ -12,6 +12,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeaderComponent implements OnInit {
 
+  public openMenuMobile = false;
+
   constructor(
 
 

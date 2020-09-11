@@ -65,8 +65,13 @@ export class TopUserComponent implements OnInit, OnDestroy {
     .pipe(
       debounceTime(300)
     ).subscribe((value: any) => {
-      console.log("value", value);
-      this.loadUsers(value);
+      if(value){
+        this.loadUsers(value);
+      }else{
+        this.userList.length = 0;
+      }
+     
+     
     })
   }
   

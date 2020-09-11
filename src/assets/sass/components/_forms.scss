@@ -35,15 +35,28 @@
   margin-left: auto;
   padding-top: 15px;
   padding-bottom: 15px;
+  @include breakpoint(max_sm){
+    max-width: 100%;
+  }
   .bs-form-group{
     display: flex;
+    @include breakpoint(max_sm){
+      display: block;
+    }
     &__label{
       width:100px;
       padding-top: 10px;
+      @include breakpoint(max_sm){
+        padding-bottom: 5px;
+        display: block;
+      }
     }
   }
   .ng-select{
     width: 300px;
+    @include breakpoint(max_sm){
+      width: 100%;
+    }
   }
  .validation-error-message{
    padding-left: 100px;;

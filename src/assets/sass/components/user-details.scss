@@ -4,11 +4,22 @@
 .user-details{
   display: flex;
   width:100%;
-  margin:25px 0; 
+  // margin:25px 0; 
   border:1px solid $border;
+  @include breakpoint(max_sm){
+    flex-direction: column;
+    border:0;
+  }
   &__left{
     width:300px;
     border-right:1px solid $border;
+    overflow: hidden;
+    @include breakpoint(max_sm){
+      border:1px solid $border;
+      margin-top:10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   &__photo{
     width:100%;
@@ -23,12 +34,26 @@
   }
   &__right{
     padding:15px;
+    @include breakpoint(max_sm){
+      padding:15px 0;
+    }
   }
   &__right{
     padding-top:20px
   }
   &__info{
     padding:15px;
+  }
+  .html-url{
+    width:100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+  }
+}
+.repo-detail-text{
+  @include breakpoint(max_sm){
+    text-align: center;
   }
 }
 .repository-list{
@@ -48,6 +73,7 @@
     padding:5px 10px;
    
   }
+  
 }
 /* -----------------------------------
 ** User Details
