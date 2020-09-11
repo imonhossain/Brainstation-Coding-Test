@@ -34,13 +34,12 @@
   }
   &__right{
     padding:15px;
+    width:calc(100% - 30px);
     @include breakpoint(max_sm){
       padding:15px 0;
     }
   }
-  &__right{
-    padding-top:20px
-  }
+  
   &__info{
     padding:15px;
   }
