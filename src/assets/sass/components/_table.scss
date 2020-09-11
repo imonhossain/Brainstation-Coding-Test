@@ -72,7 +72,13 @@ table {
 			border-right: 1px solid $primary;
 	}
 }
-
+.bs-table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 
 /* -----------------------------------
 ** End Table

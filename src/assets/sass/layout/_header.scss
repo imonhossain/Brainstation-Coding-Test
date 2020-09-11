@@ -20,21 +20,7 @@
   padding-right: 15px;
   padding-left: 15px;
 }
-.bs-column-6 {
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-.bs-column-4{
-  -ms-flex: 0 0 33.333333%;
-  flex: 0 0 33.333333%;
-  max-width: 33.333333%;
-}
-.bs-column-3{
-  -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
-}
+
 .bs-menu-list{
   li{
     list-style:none;
@@ -47,9 +33,50 @@
 .bs-header-menu{
   display: flex;
   align-items: center;
+  position: relative;
+  width:100%;
+  z-index: 999;;
+  background:#fff;
+  @include breakpoint(max_sm){
+    border-bottom:1px solid $border;
+  }
+  @include breakpoint(max_sm){
+    justify-content: space-between;
+    position: fixed;
+    width:100%;
+    top:0;
+    left:0;
+    padding:0 15px;
+  
+  }
+  .bs-menu-list{
+    @include breakpoint(max_sm){
+      text-align: right;
+      position: fixed;
+      right:-230px;
+      background: #212121;
+      width: 230px;
+      height: calc(100vh - 45px);
+      top: 45px;
+      z-index: 22;
+      padding:15px;
+      transition:.3s;
+      &.open-menu{
+        right:0
+      }
+      li{
+        display: block;
+        margin-bottom:10px;
+        a{
+          color:#fff;
+        }
+      }
+    }
+  }
 }
 .bs-menu-list{
   text-align: right;
+  
   li{
     padding:5px 10px;
   }
@@ -66,13 +93,54 @@
   }
 }
 .bs-header{
-  border-bottom:1px solid $border;
+   border-bottom:1px solid $border;
 }
 .bs-site-title{
-  margin:10px 0;
+  margin:13px 0;
+  a{
+    color:$primary;
+  }
 }
 .bs-header{
   height: 60px;
+}
+
+.header-humberger{
+  position: relative;
+  background:transparent;
+  border:0;
+  display: none;
+  @include breakpoint(max_sm){
+    display: block;
+  }
+  .bar-1, .bar-2, .bar-3{
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    display: block;
+    margin: 4px auto;
+    transition:.3s;
+  }
+  &.show-cross{
+    .bar-2{
+      display: none;
+    }
+    .bar-1, .bar-3{
+      position: absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      margin:auto;
+      
+    }
+    .bar-1{
+      transform: rotate(45deg);
+    }
+    .bar-3{
+      transform: rotate(-45deg);
+    }
+  }
 }
 /* -----------------------------------
 ** End Header

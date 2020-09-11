@@ -19,7 +19,10 @@
     </table>
   </div>
 
-  <div class="pagination-wraper">
+  <div class="no-data-found text-center" *ngIf="repositoryList.length == 0">
+    No data found
+  </div>
+  <div class="pagination-wraper" *ngIf="repositoryList.length != 0">
     <span class="pagination-total">Total <strong>{{ repositoryList?.length }}</strong></span>
     <div class="pagination-right">
       <div class="btn-group float-right">

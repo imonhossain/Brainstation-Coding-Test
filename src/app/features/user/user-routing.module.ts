@@ -13,7 +13,8 @@ const routes: Routes = [
   {
     path: '', component: UserComponent,
     children: [
-      { path: '', component: HomeComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
       { path: 'user-details', component: UserDetailsComponent },
       { path: 'repository-details', component: RepositoryDetailsComponent },
       { path: 'top-users', component: TopUserComponent },
